@@ -1,0 +1,29 @@
+<?php
+/*This is the Admin Index Page View */
+$auth  = $this->setauth;//authentication sessions
+$model = $this->setmodel; //model object
+//$process  = $model->process; //process form;
+//$validate = $model->validate;//validate form
+$model->indexModel();
+$userinfo = $auth->authCredentials();
+$html = new HTMLHelper;
+$INCLUDE_SCRIPT = $html->addScripts(array(BASE_URL."app/_scripts/ajax.js"));
+$util = new Utility;
+//Login and Check for Access Level
+if(!$auth->isLoggedIn()){
+   $util->redirectTo(BASE_URL."dashboard".QUERY_STRING."index/login");
+}elseif(!($auth->isAdmin()||$auth->isModerator()||$auth->isEditor())){	
+	$util->redirectTo(BASE_URL."dashboard".QUERY_STRING."index/login");
+}
+
+$header=$title=$content=$footer='';
+$title = "Welcome to Hotel Reservation System";
+$content ="";
+$footer=BACKEND_COPYRIGHT;
+$data    = ["Title"=>$title,
+			"SideMenu"=>$side_menu,
+			"Content"=>$content,
+			"Footer"=>$footer,
+			"Script"=>$INCLUDE_SCRIPT
+		   ];
+?>

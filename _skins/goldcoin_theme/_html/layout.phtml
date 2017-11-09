@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<?php
+//$view = new View;
+?>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="<?php echo $view->getView("Keywords")?>" />
+<meta name="description" content="<?php echo $view->getView("Description")?>" />
+<meta name="author" content="<?php echo $view->getView("Author")?>" />
+<?php echo $view->getView("Meta")?>
+<?php echo $view->getView("Stylesheet")?>
+<link rel="stylesheet" media="screen,projection" href="app/_skins/default/_css/main.css" />
+<!--[if IE]>
+<link href="_skins/stylesheets/default/ie5+.css" rel="stylesheet" type="text/css">
+<![endif]-->
+<title><?php echo $view->getView("Title")?></title>
+</head>
+<body>
+<div id="wrapper">
+<!--// CONTENT HEADER //-->
+<header id="header">
+<div id="logo"><!--logo-->
+<img src="app/_skins/default/_images/logo.png" alt="Logo" />
+</div>
+<?php echo $view->getView("PageHeader") ?>
+<!--//MENU OR NAV AREA//-->
+<nav id="menu">
+<?php  echo  $view->getView("MainNav") ?>
+</nav>
+<!--//MENU OR NAV AREA//-->
+</header>
+<!--//BANNER AREA //-->
+<section id="banner_rotator"><?php  echo $view->getView("Banner") ?>&nbsp; Banner</section>
+<!--//BANNER AREA //-->
+<section id="aside_left"><?php  echo $view->getView("AsideLeft") ?></section>
+<!--//SIDE BAR AREA 
+<section id="aside_right"><?php echo $view->getView("AsideRight")?></section>//-->
+<!--//SIDE BAR AREA //-->
+<!--// CONTENT AREA STARTS//-->
+<section id="content">
+<article>
+	 <?php echo $view->getView("Content") ?>
+</article>
+</section>
+<!--// CONTENT AREA ENDS//-->
+<!--//FOOTER AREA //-->
+<footer id="footer">
+	<?php echo $view->getView("Footer") ?>
+</footer>
+</div>
+	<?php echo $view->getView("Script"); ?>
+    <script src="app/_scripts/jquery.js"></script>
+    <script src="app/_scripts/app.js"></script>
+</body>
+</html>

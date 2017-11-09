@@ -1,0 +1,98 @@
+<?php
+include_once"form.class.php";
+/* Form Processing Class is used to create forms validate form data and process form all at once */
+class  ProcessForm{
+	 public $successflag = true;
+	 public $errorinfo = []; //add each error to the end of this array
+	 public $successmsg = "";
+	 public $message;
+	 public $method = ["post"=>"POST","get"=>"GET"];
+	 public $post_sess;
+    
+	 public function requestMethod($req="post"){
+	 	   return (($_SERVER["REQUEST_METHOD"] == $this->method[$req])?true:false);
+		  //return ($_SERVER["REQUEST_METHOD"]=="POST"?true:false);
+	 } 
+    
+	 public function post($poststr,$input_val=''){
+	 	return (isset($_POST[$poststr]))?trim(filter_var($_POST[$poststr],FILTER_SANITIZE_STRING)):htmlentities($input_val);
+	 }
+	
+	 public function get($poststr,$input_val=''){
+	 	return (isset($_GET[$poststr]))?trim(filter_var($_GET[$poststr],FILTER_SANITIZE_STRING)):htmlentities($input_val);
+	 }
+	
+	/** Use postItems to post checkbox items in Array **/
+     public function postItems($poststr){
+		 $list ="";
+		 if(!empty($_POST[$poststr])){
+			 foreach($_POST[$poststr] as $value){
+				 $list .= $value.",";
+			 }
+		   // use substr(trim($list),0, -1) or rtrim($list,",") to remove last comma
+		  $list = substr(trim($list),0, -1); 	 
+		 }
+		 
+		 return $list;
+	 }
+	
+	 public function postFiles($poststr,$input_val=''){
+	 	return (isset($_FILES[$poststr]["name"]))?strip_tags($_FILES[$poststr]["name"]):htmlspecialchars($input_val);
+	 }
+	/*@method postSessObj, setPostSess , getPostSess, delPostSess */
+	 public function postSessObj(){
+		 $this->post_sess = new SessCookie;
+		 return $this->post_sess;
+	 }
+	
+	 public function setPostSess($session_name,$post_sessdata){
+	  return $this->post_sess->setSession($session_name,$post_sessdata);
+	 }
+	
+	 public function getPostSess($session_name){
+		return $this->post_sess->getSession($session_name);
+	 }
+	 
+	 public function delPostSess($session_name){
+		return $this->post_sess->delSession($session_name);
+	 }
+	
+	 public function isOk(){
+		$isok = count($this->errorinfo);
+		if($isok > 0){
+		   $this->successflag = false;
+		}else{
+		   $isok = 0;
+		   $this->successflag = true;
+		}
+		return $this->successflag;
+	 }
+	//displays both errors and success messages
+	 public function message($msg=''){
+	 	//if no errors are found
+	 if(count($this->errorinfo)==0 && $this->successflag == true){
+	   $this->successmsg .= $msg;
+	 }else{
+	 	// Display Error Msg Here
+		  if(count($this->errorinfo)==1){
+		  	$this->successflag = false;
+		  	$msg = "There is ".count($this->errorinfo)." error in the form field";
+		  }elseif(count($this->errorinfo) > 1){
+		  	$this->successflag = false;
+		  	$msg = "There are ".count($this->errorinfo)." errors in the form fields";
+		  }
+	  return $this->successflag;	
+	 } 
+	   return $this->message = ($this->successflag==true)?"<p class=\"successmsg\">".$this->successmsg."</p>":"<p class=\"error\">".$msg."</p>";
+	 }
+      /* This function validate input forms */
+	 public static function validate(){
+	 	return new FormValidator;
+	 	
+	 }
+     public function validateForm(){
+		return new ValidateForms;
+	 }
+}
+
+?>

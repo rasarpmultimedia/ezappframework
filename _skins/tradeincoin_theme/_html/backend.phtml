@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title><?php echo $view->getView("Title")?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Bitcoin, Buy Bitcoin, Sell Bitcoin, Buy Goldcoin, Sell Goldcoin" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="app/_scripts/app.js"></script>
+<!-- Bootstrap Core CSS -->
+<link href="app/_skins/tradeincoin_theme/_css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="app/_skins/tradeincoin_theme/_css/client.style.css" rel='stylesheet' type='text/css' />
+<!-- font CSS -->
+<link rel="icon" href="favicon.ico" type="image/x-icon" >
+<!-- font-awesome icons -->
+<link href="app/_skins/tradeincoin_theme/_css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+ <!-- js-->
+<!--<script src="app/_skins/tradeincoin_theme/_js/jquery.min.js"></script>-->
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<?php echo $view->getView("HeaderSectionScript")?>
+<script src="app/_skins/tradeincoin_theme/_js/modernizr.custom.js"></script>
+<!--webfonts-->
+<link href='//fonts.googleapis.com/css?family=Comfortaa:400,700,300' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Muli:400,300,300italic,400italic' rel='stylesheet' type='text/css'>
+<!--//webfonts-->  
+<!-- Metis Menu -->
+<script src="app/_skins/tradeincoin_theme/_js/metisMenu.min.js"></script>
+<script src="app/_skins/tradeincoin_theme/_js/custom.js"></script>
+<link href="app/_skins/tradeincoin_theme/_css/custom.css" rel="stylesheet">
+<!--//Metis Menu -->
+
+</head> 
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+		<!--left-fixed -navigation-->
+		<div class="sidebar" role="navigation">
+            <div class="navbar-collapse">
+				<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right dev-page-sidebar mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar" id="cbp-spmenu-s1">
+					<div class="scrollbar scrollbar1">
+						<?php echo $view->getView("MenuNav")?>
+					</div>
+					<!-- //sidebar-collapse -->
+				</nav>
+			</div>
+		</div>
+		<!--left-fixed -navigation-->
+		<!-- header-starts -->
+		<div class="sticky-header header-section ">
+			<div class="header-left">
+				<!--logo -->
+				<div class="logo">
+					<?php echo $view->getView("Logo")?>
+				</div>
+				<!--//logo-->
+				<div class="user-right">
+					<!--notifications of menu start -->
+						<?php echo $view->getView("UserProfile")?>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<div class="profile_medile"><!--notifications of menu start -->
+				<?php echo $view->getView("NotifyDropDown")?>
+			</div>
+			<div class="header-right">
+					<!--toggle button start-->
+					<div class="search-box">
+					<form class="input">
+						<input class="sb-search-input input__field--madoka" placeholder="Search..." type="search" id="search" name="search" value="">
+					</form>
+				</div>
+				<button id="showLeftPush"><i class="fa fa-bars"></i></button>
+				<div class="clearfix"> </div>
+				<!--toggle button end-->
+			</div>
+			<div class="clearfix"> </div>	
+		</div>
+		<!-- //header-ends -->
+		<!-- //header-ends -->
+		<div id="page-wrapper">
+			<div class="main-page">
+			<?php echo $view->getView("Content")?>
+			</div>	
+	</div>	
+	<!--typo-ends-->
+	<div class="copy-section">
+			<?php echo $view->getView("Footer")?>
+		<p>&copy; All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+		</div>
+	</div>
+			<!-- Classie -->
+				<script src="app/_skins/tradeincoin_theme/_js/classie.js"></script>
+				<script>
+					var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+						showLeftPush = document.getElementById( 'showLeftPush' ),
+						body = document.body;
+						
+					showLeftPush.onclick = function() {
+						classie.toggle( this, 'active' );
+						classie.toggle( body, 'cbp-spmenu-push-toright' );
+						classie.toggle( menuLeft, 'cbp-spmenu-open' );
+						disableOther( 'showLeftPush' );
+					};
+					
+
+					function disableOther( button ) {
+						if( button !== 'showLeftPush' ) {
+							classie.toggle( showLeftPush, 'disabled' );
+						}
+					}
+				</script>
+			<!-- Bootstrap Core JavaScript --> 
+				
+				<script type="text/javascript" src="app/_skins/tradeincoin_theme/_js/bootstrap.min.js"></script>
+				<!--scrolling js-->
+				<script src="app/_skins/tradeincoin_theme/_js/jquery.nicescroll.js"></script>
+				<script src="app/_skins/tradeincoin_theme/_js/scripts.js"></script>
+				<?php echo $view->getView("Scripts")?>
+				<!--//scrolling js-->
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="<?php echo $view->getView("Keywords")?>" />
+<meta name="description" content="<?php echo $view->getView("Description")?>" />
+<meta name="author" content="<?php echo $view->getView("Author")?>" />
+<?php echo $view->getView("Meta") ?>
+<?php echo $view->getView("Stylesheet")?>
+	
+   	<link rel="stylesheet"  href="app/_skins/theme_silver/_css/bootstrap.css"/>
+    <link rel="stylesheet"  href="app/_skins/theme_silver/_css/frontend.css" /> 
+	<title><?php echo $view->getView("Title")?></title>
+</head>
+<body>
+    <article class="container-fluid">
+     <header class="row" id="header">
+       <section class="col-sm-12">
+              <?php echo $view->getView("PageHeader") ?>
+        <div class="headerwrap">
+			<nav class="social-corner">
+				<ul>
+					<li><a href="http://www.facebook.com/Silver-MEDIA-GH-200924676938910/"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="http://twitter.com/silver media gh"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="https://plus.google.com/u/0/"><i class="fa fa-google-plus"></i></a></li>
+                </ul>
+            </nav>
+           <div class="logo" style="vertical-align: bottom;">
+			  <img src="app/_skins/theme_silver/_images/logo.png" alt="Silvermediagh Logo" class="img-circle" width="150" height="150" /></div>
+            <nav class="navbar menunav">
+                <p>...your best platform for unique experience.!</p>
+                <?php  echo  $view->getView("MainNav") ?>
+            </nav>
+       </div>
+			  <?php echo $view->getView("Scroller") ?>
+      </section>
+    </header>
+    <!--BANNER-->
+    <!--BANNER/-->
+        <article class="row" id="content">
+            <aside class="leftpanel col-sm-3">
+                <?php  echo $view->getView("AsideLeft") ?>
+            </aside>
+            <article class="homepage content  col-sm-6">
+                <?php echo $view->getView("Content") ?>
+            </article>
+                <aside class="rightpanel col-sm-3">
+                    <?php echo $view->getView("AsideRight")?>
+                <!--Flex Box Right-->
+                </aside>
+          
+         </article>
+         <section class="row">
+             <div class="col-sm-12 circles">&nbsp;
+                 <p class="text-center carousel">Carousel rotates Here with artists pictures</p>
+             </div>
+        </section>
+        <footer class="row">
+        <?php echo $view->getView("Footer") ?>
+        <div class="col-sm-12">&nbsp; Loction Map.</div>
+        <div class="col-sm-12">
+        <p class="text-center">Copyright&copy; Silver Media Ghana Inc&trade; 2016, All Rights Reserved </p>
+        </div> 
+    </footer>
+    </article>
+    <!--<script src="app/_scripts/jquery.js"></script>-->
+    <script src="app/_scripts/app.js"></script>
+	<script src="app/_skins/theme_silver/_js/jquery.min.js"></script>
+	<script src="app/_skins/theme_silver/_js/wow.min.js"></script>
+	<script src="app/_skins/theme_silver/_js/bootstrap.min.js"></script>
+	<script src="app/_skins/theme_silver/_js/slick.min.js"></script>
+	<script src="app/_skins/theme_silver/_js/jquery.li-scroller.1.0.js"></script>
+	<script src="app/_skins/theme_silver/_js/custom.js"></script>
+	<script src="app/_skins/theme_silver/_js/owl.carousel.min.js"></script>
+    <?php echo $view->getView("Script"); ?>
+</body>
+</html>

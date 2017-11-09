@@ -1,0 +1,67 @@
+<?php
+/** Initiate Class for View **/
+$html = new HtmlHelper;
+$link = new GenerateUrl;
+$util = new Utility;
+
+
+$login = $link::buildLink(".","."," <i class=\"fa fa-sign-in\"></i> Log In  ",SET_QUERY_STRING."=login");
+$logout = $link::buildLink(".",".","<i class=\"fa fa-sign-out\"></i> Log Out  ",SET_QUERY_STRING."=login/logout");
+
+//<p id="welcome">You haven\'t sign in yet '.$sign_in.'</p>
+
+if($auth->isLoggedIn() && $auth->isAdmin()){
+    $manageusers = $link::buildLink(".",".","<i class=\"fa fa-user-plus\"></i> Manage Members ",SET_QUERY_STRING."=members/details");
+    $mycollections = $link::buildLink(".",".","<i class=\"fa fa-music\"></i> My Music Collections ",SET_QUERY_STRING."=music/collections");
+    $managenews = $link::buildLink(".",".","<i class=\"fa fa-newspaper-o\"></i> Manage News ",SET_QUERY_STRING."=page/details");
+    $manageblog = $link::buildLink(".",".","<i class=\"fa fa-pencil\"></i> Manage Blog ",SET_QUERY_STRING."=manageblog");
+
+    $dashboardmenu ='
+    <ul class="dashmenu">
+    <li>'.$manageusers.'</li>
+    <li>'.$mycollections.'</li>
+    <li>'.$managenews.'</li>
+    <li>'.$manageblog.'</li>
+    <li>'.$logout.'</li></ul>'; 
+    
+}elseif($auth->isLoggedIn() && $auth->isModerator()){
+    $mycollections = $link::buildLink(".",".","<i class=\"fa fa-music\"></i> My Music Collections ",SET_QUERY_STRING."=music/collections");
+    $managenews = $link::buildLink(".",".","<i class=\"fa fa-newspaper-o\"></i> Manage News ",SET_QUERY_STRING."=page/details");
+    $manageblog = $link::buildLink(".",".","<i class=\"fa fa-pencil\"></i> Manage Blog ",SET_QUERY_STRING."=manageblog");
+
+    $dashboardmenu ='
+    <ul class="dashmenu">
+    <li>'.$mycollections.'</li>
+    <li>'.$managenews.'</li>
+    <li>'.$manageblog.'</li>
+    <li>'.$logout.'</li></ul>';   
+    
+}elseif($auth->isLoggedIn() && $auth->isEditor()){
+	$manageusers = $link::buildLink(".",".","<i class=\"fa fa-user-plus\"></i> Manage Members ",SET_QUERY_STRING."=members/details");
+    $mycollections = $link::buildLink(".",".","<i class=\"fa fa-music\"></i> My Music Collections ",SET_QUERY_STRING."=music/collections");
+    $managenews = $link::buildLink(".",".","<i class=\"fa fa-newspaper-o\"></i> Manage News ",SET_QUERY_STRING."=page/details");
+    $manageblog = $link::buildLink(".",".","<i class=\"fa fa-pencil\"></i> Manage Blog ",SET_QUERY_STRING."=manageblog");
+    
+    $dashboardmenu ='
+    <ul class="dashmenu">
+    <li>'.$managenews.'</li>
+    <li>'.$manageblog.'</li>
+    <li>'.$logout.'</li></ul>';
+    
+}elseif($auth->isLoggedIn() && $auth->isUser()){
+    $manageblog = $link::buildLink(".",".","<i class=\"fa fa-pencil\"></i> Manage Blog ",SET_QUERY_STRING."=manageblog");
+    
+	$dashboardmenu ='
+    <ul class="dashmenu">
+    <li>'.$manageblog.'</li>
+    <li>'.$logout.'</li></ul>';  
+    
+}
+
+$index = $link::buildLink(".",".","<i class=\"fa fa-dashboard\"></i> Dashboard");
+$myprofile = $link::buildLink(".",".","<i class=\"fa fa-user\"></i> My Profile",SET_QUERY_STRING."=members/profile");
+
+$nav='<ul class="menu">
+    <li>'.$index.'</li>
+    <li>'.$myprofile.'</li>
+</ul>';

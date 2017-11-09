@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="<?php echo $view->getView("Keywords")?>" />
+<meta name="description" content="<?php echo $view->getView("Description")?>" />
+<meta name="author" content="<?php echo $view->getView("Author")?>" />
+<?php echo $view->getView("Meta")?>
+<?php echo $view->getView("Stylesheet")?>
+    <link rel="stylesheet"  href="../app/_skins/theme_silver/_css/bootstrap.css"/>
+    <link rel="stylesheet"  href="../app/_skins/theme_silver/_css/backend.css" />
+ <title><?php echo $view->getView("Title")?></title>
+</head>
+<body>
+    <article class="container-fluid">
+     <header class="row" id="header">
+          <section class="col-sm-12">
+              <?php echo $view->getView("PageHeader") ?>
+        <div class="headerwrap">
+           <div class="logo" style="vertical-align: bottom;">
+                <img src="../app/_skins/theme_silver/_images/logo.png" alt="Silver Media Logo" class="img-circle" width="150" height="150" />
+           </div>
+            <nav class="navbar menunav">
+                <p>...your best platform for unique experience.!</p>
+            </nav>
+           </div>
+         </section>
+    </header>
+   
+        <article class="row" id="content">
+             <aside class="leftpanel col-sm-3">
+                <?php  echo $view->getView("AsideLeft") ?>
+            </aside>
+            <div class="login  col-sm-6">
+                <?php echo $view->getView("Content") ?>
+            </div>
+                
+        </article>
+        
+        <footer class="row text-center">
+        <?php echo $view->getView("Footer") ?>
+        </footer>
+    </article>
+    <script src="../app/_scripts/jquery.js"></script>
+    <script src="../app/_scripts/app.js"></script>
+    <?php echo $view->getView("Script"); ?>
+</body>
+</html>

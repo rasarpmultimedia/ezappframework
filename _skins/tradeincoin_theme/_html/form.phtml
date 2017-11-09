@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><?php echo $view->getView("Title")?></title>
+<link href="app/_skins/tradeincoin_theme/_css/basic.css" rel="stylesheet" type="text/css" media="all" />
+<link href="app/_skins/tradeincoin_theme/_css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto:500,900italic,900,400italic,100,700italic,300,700,500italic,100italic,300italic,400' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+<!-- js -->
+<script src="app/_skins/tradeincoin_theme/_js/jquery.min.js"></script>
+<!-- //js -->
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="<?php echo $view->getView("Keywords")?>" />
+<meta name="description" content="<?php echo $view->getView("Description")?>" />
+<meta name="author" content="<?php echo $view->getView("Author")?>" />
+<?php echo $view->getView("Meta")?>
+<?php echo $view->getView("Stylesheet")?>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="app/_skins/tradeincoin_theme/_js/move-top.js"></script>
+<script type="text/javascript" src="app/_skins/tradeincoin_theme/_js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+<!--animated-css-->
+<link href="app/_skins/tradeincoin_theme/_css/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="app/_skins/tradeincoin_theme/_js/wow.min.js"></script>
+<script>
+ new WOW().init();
+</script>
+<!--/animated-css-->
+</head>
+<body>
+<!-- header -->
+	<div class="header-nav">
+	<div class="container">
+		<div class="logo wow fadeInLeft" data-wow-delay="0.5s">
+			<a href="index.php">
+			<img src="app/_skins/tradeincoin_theme/_images/logo.png" alt=" " /></a>
+		</div>
+		<div class="logo-right">
+		<?php echo $view->getView("MenuNav") ?>
+		</div>
+		<div class="clearfix"> </div>
+				<!-- script for menu -->
+					<script> 
+						$( "span.menu" ).click(function() {
+						$( "ul.menu_nav" ).slideToggle( 300, function() {
+						 // Animation complete.
+						});
+						});
+					</script>
+				<!-- //script for menu -->
+	</div>
+	</div>
+<!-- //header-->
+<!-- sign-up -->
+<div class="formwrap-form wow fadeInUp" data-wow-delay="0.5s">
+	<div class="container">
+		<?php echo $view->getView("Content") ?>
+	</div>
+</div>
+<!-- sign-up -->	
+<!-- footer -->
+	<div class="footer">
+	<div class="container">
+		<?php echo $view->getView("Footer") ?>
+	</div>
+	</div>
+<!-- //footer -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+									$(document).ready(function() {
+										/*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear' 
+								 		};
+										*/
+										
+										$().UItoTop({ easingType: 'easeOutQuart' });
+										
+									});
+	</script>
+<!-- //here ends scrolling icon -->
+<?php echo $view->getView("Scripts") ?>
+</body>
+

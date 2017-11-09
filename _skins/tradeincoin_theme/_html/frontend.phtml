@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><?php echo $view->getView("Title")?></title>
+<link href="app/_skins/tradeincoin_theme/_css/basic.css" rel="stylesheet" type="text/css" media="all" />
+<link href="app/_skins/tradeincoin_theme/_css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto:500,900italic,900,400italic,100,700italic,300,700,500italic,100italic,300italic,400' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+<!-- js -->
+<script src="app/_scripts/jquery.min.js"></script>
+<script src="app/_scripts/app.js"></script>
+<!-- //js -->
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="<?php echo $view->getView("Keywords")?>" />
+<meta name="description" content="<?php echo $view->getView("Description")?>" />
+<meta name="author" content="<?php echo $view->getView("Author")?>" />
+<?php echo $view->getView("Meta")?>
+<?php echo $view->getView("Stylesheet")?>
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="app/_skins/tradeincoin_theme/_js/move-top.js"></script>
+<script type="text/javascript" src="app/_skins/tradeincoin_theme/_js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+<!--animated-css-->
+<link href="app/_skins/tradeincoin_theme/_css/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="app/_skins/tradeincoin_theme/_js/wow.min.js"></script>
+<script>
+ new WOW().init();
+</script>
+<!--/animated-css-->
+</head>
+	
+<body>
+<!-- header -->
+		<div class="header-nav">
+	<div class="container">
+		<div class="logo wow fadeInLeft" data-wow-delay="0.5s">
+			<a href="index.php"><img src="app/_skins/tradeincoin_theme/_images/logo.png" alt=" " /></a>
+		</div>
+		<div class="logo-right">
+			<!--//MENU OR NAV AREA//-->
+			<?php echo $view->getView("MenuNav") ?>
+			<!--//MENU OR NAV AREA ENDS//-->
+		</div>
+		<div class="clearfix"> </div>
+				<!-- script for menu -->
+					<script> 
+						$( "span.menu" ).click(function() {
+						$( "ul.main_nav" ).slideToggle( 300, function() {
+						 // Animation complete.
+						});
+						});
+					</script>
+				<!-- //script for menu -->
+	</div>
+	</div>
+	<div class="header-info wow fadeInUp" data-wow-delay="0.5s">
+	<div class="container">
+		<?php echo $view->getView("Header_info") ?>
+	</div>
+	</div>
+<!-- //header -->
+<!-- single -->
+	<div class="single">
+	<div class="container">
+		<div class="bottom">
+			<?php echo $view->getView("FlexboxTop") ?>
+		</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+	</div>
+	<div class="content-area">
+	<div class="container">
+		  <?php echo $view->getView("Content") ?>
+		<div class="content-area-right wow fadeInRight" data-wow-delay="0.5s">
+			<?php echo $view->getView("ContentImage") ?>
+					<!-- pop-up-box -->
+					<script type="text/javascript" src="app/_skins/tradeincoin_theme/_js/modernizr.custom.min.js"></script>    
+					<link href="app/_skins/tradeincoin_theme/_css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+					<script src="app/_skins/tradeincoin_theme/_js/jquery.magnific-popup.js" type="text/javascript"></script>
+					<!--//pop-up-box -->
+					<div id="small-dialog" class="mfp-hide">
+					<?php echo $view->getView("ContentVideo") ?>	
+					</div>
+
+					<script>
+						$(document).ready(function() {
+						$('.popup-with-zoom-anim').magnificPopup({
+							type: 'inline',
+							fixedContentPos: false,
+							fixedBgPos: true,
+							overflowY: 'auto',
+							closeBtnInside: true,
+							preloader: false,
+							midClick: true,
+							removalDelay: 300,
+							mainClass: 'my-mfp-zoom-in'
+						});
+																						
+						});
+					</script>
+		</div>
+		
+		<div class="clearfix"> </div>
+	</div>
+	</div>
+	<div class="last-grids">
+	<div class="container">
+	 <?php echo $view->getView("FlexMidbox") ?>
+		<div class="last-grid">
+			<?php echo $view->getView("FlexboxBottom") ?>
+			<div class="clearfix"> </div>
+			<link rel="stylesheet" href="css/swipebox.css">
+				<script src="js/jquery.swipebox.min.js"></script> 
+					<script type="text/javascript">
+						jQuery(function($) {
+							$(".swipebox").swipebox();
+						});
+					</script>
+				<!-- Portfolio Ends Here -->
+				<script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+					<script type="text/javascript">
+					$(function () {
+						var filterList = {
+							init: function () {
+								// MixItUp plugin
+							// http://mixitup.io
+							$('#portfoliolist').mixitup({
+								targetSelector: '.portfolio',
+								filterSelector: '.filter',
+								effects: ['fade'],
+								easing: 'snap',
+								// call the hover effect
+								onMixEnd: filterList.hoverEffect()
+							});	
+						},
+						hoverEffect: function () {
+							// Simple parallax effect
+							$('#portfoliolist .portfolio').hover(
+								function () {
+									$(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+									$(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');				
+								},
+								function () {
+									$(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+									$(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');								
+								}		
+							);				
+						}
+					};
+					// Run the show!
+						filterList.init();
+					});	
+					</script>
+		</div>
+	</div>
+	</div>
+<!-- //single -->
+<!-- footer -->
+	<div class="footer">
+	<div class="container">
+		<?php echo $view->getView("Footer") ?>
+	</div>
+	</div>
+<!-- //footer -->
+	<?php echo $view->getView("Scripts") ?>
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+									$(document).ready(function() {
+										/*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear' 
+								 		};
+										*/
+										
+										$().UItoTop({ easingType: 'easeOutQuart' });
+										
+									});
+	</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>

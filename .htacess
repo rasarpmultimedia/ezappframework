@@ -1,0 +1,11 @@
+RewriteEngine On
+# Check to see if the file is there
+# RewriteBase /
+RewriteBase /ezappframework
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_FILENAME} !/^/$
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_FILENAME} !/(_modules|_vendor|_webroot|app|auth|dashboard|includes|manual|schema|example_site)(/.*)?
+RewriteCond %{REQUEST_FILENAME} !\.(php|ico|png|jpg|gif|css|js|html?)(\W.*)?
+
+RewriteRule ^([a-zA-Z0-9-]+)/? index.php/$1 [L,QSA]
+RewriteRule ^dashboard/([a-zA-Z0-9-]+)/? index.php?$1 [L,QSA]
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="<?php echo $view->getView("Keywords")?>" />
+<meta name="description" content="<?php echo $view->getView("Description")?>" />
+<meta name="author" content="<?php echo $view->getView("Author")?>" />
+<?php echo $view->getView("Meta")?>
+<?php echo $view->getView("Stylesheet")?>
+<link rel="stylesheet" media="screen,projection" href="app/_skins/default/_css/basic.css" />
+<!--[if IE]>
+<link href="_skins/stylesheets/default/ie5+.css" rel="stylesheet" type="text/css">
+<![endif]-->
+<title><?php echo $view->getView("Title")?></title>
+</head>
+<body>
+<div id="wrapper">
+<!--// CONTENT HEADER //-->
+<header id="header">
+<div id="logo"><!--logo-->
+<img src="app/_skins/core_theme/_images/logo.png" alt="Logo" />
+</div>
+<!--//MENU OR NAV AREA//-->
+<nav id="menu">
+<?php  echo  $view->getView("MenuNav") ?>
+</nav>
+<!--//MENU OR NAV AREA//-->
+</header>
+<!--//BANNER AREA //-->
+<!--// CONTENT AREA STARTS//-->
+<section id="content">
+<article>
+	 <?php echo $view->getView("Content") ?>
+</article>
+</section>
+<!--// CONTENT AREA ENDS//-->
+<!--//FOOTER AREA //-->
+<footer id="footer">
+	<?php echo $view->getView("Footer") ?>
+</footer>
+</div>
+    <script src="app/_scripts/jquery.js"></script>
+    <script src="app/_scripts/app.js"></script>
+	<?php echo $view->getView("Scripts"); ?>
+</body>
+</html>

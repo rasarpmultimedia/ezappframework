@@ -1,0 +1,206 @@
+#formWrapper, #loginWrapper{
+	margin: 0;
+	padding: 3px;
+	overflow: hidden;
+}
+#formWrapper h2,h3{
+	font-weight: bolder;
+	font-size: 1.2em;
+	margin-bottom:3px;
+}
+#formWrapper .app-form li > strong[role=agreement] {
+	font-weight:normal;
+	padding: 0px;
+}
+#formWrapper p:first-child{
+	width:50%;
+}
+#formWrapper > ol.app-form{
+    
+}
+
+#formWrapper > ol.app-form li >p{
+	padding: 2px;
+}
+#formWrapper > ol.app-form li{
+	 width:89%;
+	 list-style:none;	
+}
+#formWrapper input[type=radio],input[type=checkbox]{
+  margin-left:10px;
+  width: auto;
+  
+}
+#formWrapper li>p{
+	width:20px;
+	display:inline; 
+}
+.successmsg{
+    width:auto;
+	display:block; 
+	color:rgb(70,130,180);	
+}
+#formWrapper li>p.error,p.error{
+	width:auto;
+	display:block; 
+	color:rgb(255,0,0);
+}
+#formWrapper input, #formWrapper textarea[id=address]{
+	width:50%;
+	padding: 4px;
+}
+#formWrapper input,textarea,select{
+	border: 0.5px solid #dede;
+    margin-top:3px;
+	margin-bottom:3px;
+}
+#formWrapper input,textarea{
+   font-family: Arial, Helvetica, sans-serif;
+   font-weight: normal;
+   font-size: 0.9em;
+}
+#formWrapper input{
+	width:60%;
+}
+#formWrapper textarea{
+	width:95%;
+	width:inherit;
+	padding: 5px;
+}
+
+#formWrapper select{
+	padding: 5px;
+}
+#formWrapper label{
+	width:auto;
+	padding: 5px 0 2px;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+#formWrapper span>label{
+	font-weight: normal;
+	font-size: 1em;
+}
+#formWrapper .label{
+	padding: 5px
+}
+#formWrapper input[type=submit]{
+	width:auto;
+    margin-top:5px;
+}
+
+/**Login Form Styles **/
+#pfw-login-content{
+	width:50%;
+	margin-left: 48%;
+	border: 0px solid green;
+}
+#pfw-login-aside_left{
+	width:45%;
+	padding:0 1%;	
+	border-right:2px solid lightblue;
+}
+
+#pfw-login-aside_left h2,#pfw-login-aside_left h3{
+	font-weight: bold;
+	font-size: 1.2em;
+	margin-bottom:1px;
+}
+
+.login_dec{
+	width:100%;
+}
+
+#loginWrapper h2,#loginWrapper h3{
+	font-weight: bolder;
+	font-size: 1.2em;
+	margin-bottom:3px;
+}
+
+#loginWrapper{
+	margin: 0 auto;
+	width:auto;
+	padding: 3px;
+	border: 0px solid lightblue;
+}
+#loginWrapper p:first-child{
+	width:auto;
+}
+#loginWrapper > ul.app-form li{
+	 width:auto;
+	 list-style:none;	
+}
+#loginWrapper input[type=radio],input[type=checkbox]{
+  margin-left:1px;
+  width: auto;
+  line-height: 2;
+}
+
+.successmsg{
+    width:auto;
+	display:block; 
+	color:rgb(70,130,180);	
+}
+
+#loginWrapper li>p.error,p.error{
+	width:auto;
+	display:block; 
+	color:rgb(255,0,0);
+}
+
+#loginWrapper input{
+	border: 0.5px solid #dede;
+	margin:3px;
+}
+
+#loginWrapper input{
+   font-family: Arial, Helvetica, sans-serif;
+   font-weight: normal;
+   font-size: 0.8em;
+	line-height:1.5;
+}
+#loginWrapper input{
+	width:45%;
+	padding: 10px;
+}
+#loginWrapper input[type="checkbox"]{
+	width:auto;
+	padding: 10px;
+}
+#loginWrapper li label{
+	width:auto;
+	padding: 5px 0 2px;
+	font-weight:bolder;
+	font-size: 1.4em;
+}
+#formWrapper span>label{
+	font-weight: Bold;
+	font-size: 1em;
+}
+#formWrapper .label{
+	padding: 5px
+}
+#formWrapper input[type=submit]{
+	width:auto;
+    margin-top:5px;
+}
+
+/**Upload Form Styles**/
+#uploadWrapper{}
+.formgroup{}
+.inputfield{
+	
+}
+.inputlabel-left{
+	
+}
+.inputlabel-top{
+	
+}
+.inputfield {
+	
+}
+.inputfield .login{
+	
+}
+

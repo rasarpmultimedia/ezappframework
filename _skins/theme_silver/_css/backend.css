@@ -1,0 +1,288 @@
+
+/**
+Silvermedia Theme Color
+lightsteelblue  #b0c4de     176,196,222 
+lightskyblue    #87cefa     135,206,250
+lightblue       #add8e6     173,216,230
+steelblue       #4682b4     170,130,180
+silver          #c0c0c0     192,192,192
+
+Greyscale
+lightgray 	    #d3d3d3 	211,211,211 
+gray 	        #808080 	128,128,128 
+white           #ffffff     255.255,255
+**/
+@import url("typography.css");
+@import url("font-awesome.css");
+@import url("form.css");
+/** ^Layout  Page Layout and Basic Styles **/
+html{ 
+    opacity:.99;
+    background: url("../_images/logo.png") repeat;
+    background-position: center;
+}
+body{
+    background-color: rgba(255,255,255,.92);
+}
+h1,h2{
+  color: #4682b4;  
+}
+h3,h4,h5,h6{
+ color: #4682b4;   
+}
+a,a:link{ 
+    color: #4682b4;
+    text-decoration: none;
+}
+a:active,a:visited{
+ color: #add8e6; 
+}
+a:hover{
+    color:#4682b4;
+    text-decoration: none; 
+}
+
+header{ 
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4665b4+0,4682b4+65,b0b8de+100&0+0,0.7+23,0.83+100 */
+background: -moz-linear-gradient(-45deg, rgba(70,101,180,0) 0%, rgba(70,111,180,0.7) 23%, rgba(70,130,180,0.77) 65%, rgba(176,184,222,0.83) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, rgba(70,101,180,0) 0%,rgba(70,111,180,0.7) 23%,rgba(70,130,180,0.77) 65%,rgba(176,184,222,0.83) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, rgba(70,101,180,0) 0%,rgba(70,111,180,0.7) 23%,rgba(70,130,180,0.77) 65%,rgba(176,184,222,0.83) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#004665b4', endColorstr='#d4b0b8de',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+   /* background: rgba(176,196,222,0.5);*/
+    height:auto;
+}
+
+footer{
+ background: rgb(176,196,222);
+}
+
+.top-leftlink{
+    width: auto;
+    margin-top: 0.2em;
+    border: 0px solid maroon;
+    position: absolute;
+    right: 1em;
+    top: 0.84em
+}
+.top-leftlink a{
+    padding: 0.5em 0.1em; 
+    font-weight: bold;
+    color:whitesmoke;
+}
+.search-form{
+  margin: 0.45em 0.1em 0.1em 1em;  
+}
+
+.headerwrap{
+    width:78%;
+    margin: 0 auto;
+    border: 0px solid green;
+}
+
+.social-corner,.logo,.menunav{
+    display: inline-block;
+    float:none;
+    margin: 0 auto;
+}
+
+.social-corner,.menunav{}
+
+.social-corner li, .menunav li{
+        list-style:none;
+        display: inline-block; 
+        vertical-align: baseline;
+} 
+
+.social-corner li a,.menunav li a{
+    padding: 0.2em;
+    font-size: 1.2em;
+}
+.social-corner li a{
+      background-color: #4682b4;
+      width:50%;
+}
+
+
+.social-corner li a >.fa-facebook,
+.social-corner li a >.fa-twitter,
+.social-corner li a >.fa-linkedin,
+.social-corner li a >.fa-instagram,
+.social-corner li a >.fa-google-plus{
+    width: 1.55em; 
+    text-align: center;
+    color: #87cefa;
+}
+
+.social-corner li a >.fa-facebook:hover,
+.social-corner li a >.fa-twitter:hover,
+.social-corner li a >.fa-linkedin:hover,
+.social-corner li a >.fa-instagram:hover,
+.social-corner li a >.fa-google-plus:hover{
+    color: rgba(211,211,211,0.5);
+    color: #d3d3d3;
+}
+.fa-search{
+    width: 1.5em; 
+    text-align: center;
+    border-radius: 50px;
+    color: #87cefa; 
+}
+
+/**^Awsome Font Addtional Styles**/
+.fa-calendar-check-o{
+    font-size: 1.2em;
+   
+}
+.flex-box-header >.fa-calendar-check-o{
+ color: #fff;  
+}
+/**^Awsome Font Addtional Styles**/
+/*** ^Nav  Navigation Bar */
+.menunav ul.menu{
+  width: auto;
+}
+
+.menunav ul.menu li > a:hover{
+  background: rgba(176,196,222,.5);
+  background: #b0c4de;
+  color: #fff;
+  border-radius: .4em .4em;
+}
+
+.menunav ul.menu li > a{
+ font-size: 1.2em;
+ font-weight: bold;
+ color: rgb(135,206,250,.1);
+ color: #87cefa;
+    
+}
+
+.menunav > p{
+     font-size: 1.8em;
+     font-weight: bold;
+     color: #fff;
+     text-shadow:0 -1px 0 #87cefa; 
+     text-shadow:0 -1px 0 rgba(135,206,250,.3);
+}
+
+.logo{ margin-bottom: 2px;}
+
+.logo >img { 
+        border: 0.55em solid rgba(176,196,222,.5);
+        border:0.55em solid #b0c4de;
+        box-shadow: -3px 2.5px -3px rgba(211,211,211,.5); 
+}
+
+/**^Content Styles **/
+.dashboard{
+        background-color:rgba(255,255,255,0.3); 
+        background-color:#fff;
+        border: 0.2em solid rgb(236,240,235);
+        border-radius: 0 15px;
+    }
+#welcome{
+    font-family: cursive;
+    color: #4682b4 !important;
+}
+.leftpanel > h3,.rightpanel > h3,.dashboard > h3{
+        font-weight: bold;
+    }
+.flex-box{
+    background: none;
+    margin-bottom: .8em;
+    border: 0em solid #4682b4;
+    }
+.flex-box:last-child{
+   margin-bottom: 1em;  
+}
+
+.flex-box > h4,.flex-box > datetime{
+    display: inline;
+}
+
+.flex-box-header{
+    padding: 0.3em;
+}
+.flex-box-header span, .flex-box-header datetime,
+.flex-box-header a{ 
+    font-weight: bold !important;
+}
+
+.flex-box-content{
+    padding-left: 0.2em;
+}
+.flex-box-content p >img{
+    vertical-align: text-top;
+    padding-left: 0.2em;
+}
+
+.flex-box-header,.flex-box-header a{
+    background: #4682b4;  
+    color: rgb(254,254,245);
+}
+
+.flex-box-footer{
+  
+}
+.flex-box-footer a{
+    color: #add8e6;
+    padding: 0.2em;
+}
+.flex-box-header datetime, .flex-box-header a{
+    font-size: normal;
+ 
+}
+.flex-box-header a ,.flex-box-footer a{
+    font-size: 1em;
+    font-weight: normal;
+    
+}
+.flex-box-left{
+   border: 1px solid silver;
+   border-radius: 5px 0px;
+   background-color:#c0c0c0;
+   background: rgba(192,192,192,0.5);
+   margin-bottom:.5em;
+}
+
+.flex-box-header-left{
+    font-size: inherit;
+}
+.flex-box-header-left > h5{
+    font-weight: bold;
+}
+.flex-box-left .flex-box-header-left > h5,
+.flex-box-left .flex-box-header-left > datetime{
+    display: inline; 
+    margin-bottom: .05em;
+    
+}
+.flex-box-header-left{ 
+ padding: 0.2em;
+ background-color: lightblue;
+ font-size: bold;
+ margin-bottom: 0.2em;
+}
+
+.flex-box-content-left{
+    overflow: hidden;
+}
+
+/* Screen Size form 481 to 768px @Desktop */
+@media only screen and (min-width: 769px){
+  max-width:1200px;  
+    
+}
+
+/* Screen Size form 481 to 768px @Tablet */
+@media only screen and (min-width: 481px){
+  max-width:768px;  
+    
+}
+
+/* Screen Size form 320px to 768px @Mobile */
+@media only screen and (min-width: 320px){
+  max-width:480px;  
+    
+}
+

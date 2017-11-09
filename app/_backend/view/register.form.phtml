@@ -1,0 +1,115 @@
+<?php
+/*This is the Admin Index Page View */
+$auth  = $this->setauth;//authentication sessions
+$model = $this->setmodel; //model object
+$process  = $model->process; //process form;
+$validate = $model->validate;//validate form
+
+//$model->addMemberModel();
+
+$request  = $model->request;
+$action   = $request->action;
+
+$html = new HTMLHelper;
+$INCLUDE_SCRIPT = $html->addScripts(array(BASE_URL."app/_scripts/ajax.js"));
+$util = new Utility;
+
+//Login and Check for Access Level
+if(!$auth->isLoggedIn()){
+   $util->redirectTo(BASE_URL."admin".QUERY_STRING."index/login");
+}elseif(!($auth->isAdmin()||$auth->isModerator()||$auth->isEditor())){
+   $util->redirectTo(BASE_URL."admin".QUERY_STRING."index/login");
+}
+include_once "admin.nav.phtml";
+//Edit Variables
+$message   = isset($model->form_data["message"])?$model->form_data["message"]:"";
+if($action==="edit"){
+	$firstname = $model->form_data["firstname"];
+	$lastname  = $model->form_data["lastname"];
+	$email 	   = $model->form_data["email"];
+	$accesslevel = $model->form_data["accesslevel"];
+	
+}else{
+	$firstname = $process->post("firstname");
+	$lastname  = $process->post("lastname");
+	$email 	   = $process->post("email");
+	$accesslevel = $process->post("accesslevel");
+}
+
+$formaction = ($action=="edit")?"{$request->id}/edit":"add";
+ 
+$header=$title=$content=$adm_nav=$footer='';
+
+$form = new BuildForm("member_register",filter_var($_SERVER["PHP_SELF"].QUERY_STRING."member/{$formaction}" ),"post","enctype=\"application/x-www-form-urlencoded\" ");
+//Firstname
+$form->createInputField(["label"=>"Firstname",
+		"type"=>"text","name"=>"firstname","value"=>$firstname,"optionalattr"=>"class=\"data-input\" placeholder=\"\" required"]);
+//Lastname
+$form->createInputField(["label"=>"Lastname",
+		"type"=>"text","name"=>"lastname","value"=>$lastname,"optionalattr"=>"class=\"data-input\" placeholder=\"\" required"]);
+/*/Gender
+$form->createSelectField(["label"=>"Gender","name"=>"gender",
+						  "options"=>["M"=>"Male","F"=>"Female"]);*/
+//Mobile Number
+/* $form->createInputField(["label"=>"Mobile Number",
+			"type"=>"text","name"=>"mobile_number","value"=>"","optionalattr"=>"class=\"data-input\" placeholder=\"\" "]); */
+//Email					  
+$form->createInputField(["label"=>"Email",
+			"type"=>"text","name"=>"email","value"=>$email,"optionalattr"=>"class=\"data-input\" placeholder=\"\" required"]);
+
+if($action!=="edit"){
+//Password					  
+$form->createInputField(["label"=>"Password",
+			"type"=>"password","name"=>"password","value"=>"","optionalattr"=>"class=\"data-input\" placeholder=\"\" "]);
+//Confirm Password						  
+$form->createInputField(["label"=>"Confirm Password",
+			"type"=>"password","name"=>"cpassword","value"=>"","optionalattr"=>"class=\"data-input\" placeholder=\"\" "]);
+}
+//Accesslevel						  
+$form->createSelectField(["label"=>"Accesslevel","name"=>"accesslevel","value"=>$accesslevel,
+						  "options"=>["U"=>"User",
+									  "E"=>"Editor",
+									  "M"=>"Moderator",
+									  "A"=>"Administrator"]
+						 ]);
+if($action=="edit"){
+//Submit						  
+$form->createInputField(["type"=>"submit","name"=>"editmember","value"=>"Edit Member","optionalattr"=>"class=\"data-input\" placeholder=\"\""]);
+}else{
+//Submit						  
+$form->createInputField(["type"=>"submit","name"=>"addmember","value"=>"Add Member","optionalattr"=>"class=\"data-input\" placeholder=\"\""]);	
+}						  
+
+
+
+$output = "<div class=\"form_wrapper\">";
+if($action!="edit"){
+	$output.= "<h2>Add Member Form</h2>";
+}else{
+	$output.= "<h2>Edit Member Form</h2>";
+}
+$output.= "";
+
+$collections = $form->customFormCollections();
+
+$output .= $form->startForm();
+foreach($collections as $label=>$data){
+		 if(is_numeric($label)){
+			 $error = $data["error"]<>null?"<div class=\"error\">{$data["error"]}</div>":"";
+			 $output .="{$data["input"]}{$error}";
+		  }else{
+			 $error = $data["error"]<>null?"<div class=\"error\">{$data["error"]}</div>":"";
+			 $output .="<p><span>{$label}</span><br>{$data["input"]}{$error}</p>";
+		 }
+}
+
+$output .="</div>{$form->endForm()}";
+$content = $form->DisplayCustomForm($output);	
+
+
+
+$footer  = BACKEND_FOOTER;
+$data    = array("Title"=>$title,"AdminNav"=>$adm_nav,"Content"=>$content,
+			  "Footer"=>$footer,"Script"=>$INCLUDE_SCRIPT);   
+
+?>

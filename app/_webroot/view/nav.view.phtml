@@ -1,0 +1,19 @@
+<?php
+$link = new GenerateUrl;
+$nav ='<div class="nav-top-right" style="float:right">'.$link::buildPrettyUrl(".",".","Sign Up",QUERY_STRING."client/register").' | '.$link::buildPrettyUrl(".",".","Sign In",QUERY_STRING."client/signin").'</div><br class="clearfix">';//
+$nav .='<ul class="menu_nav">
+  <li>'.$link::buildPrettyUrl(".",".","Home").'</li>
+  <li>'.$link::buildPrettyUrl(".",".","About",QUERY_STRING."#about","class=\"scroll\"").'</li>
+  <li>'.$link::buildPrettyUrl(".",".","Login",QUERY_STRING."index/login","class=\"scroll\"").'</li>
+  <li>'.$link::buildPrettyUrl(".",".","Contact","#contact","class=\"scroll\"").'</li>
+</ul>';
+//buildPrettyUrl("sirenghana.com","index.php","Go to sirenghana.com","pagename,action,id,target");
+$home_page_header='	<h3>Creating Real Wealth for Our Generation</h3>
+		<p>Start Trading Goldcoin and Bitcoin on Our Trading Plaform</p>
+		<form>
+			<input type="text" placeholder="Enter your email address" required=" ">
+			<div class="up">
+			<input type="submit" value="Submit">
+			</div>
+		</form>';
+?>

@@ -1,0 +1,21 @@
+<?php
+$model = $this->setmodel; //model object
+//$auth = $this->setauth;//auth object
+//$process  = $model->process; //process form;
+//$validate = $model->validate;//validate form
+$html = new HTMLHelper;
+$INCLUDE_SCRIPT = $html->addScripts(array(BASE_URL."app/_scripts/app.js"));
+$model->indexModel();
+
+$header = $title = $nav = $scroller = $content = $footer = '';
+include_once"nav.view.phtml";
+//var_dump($nav);
+$content ="";
+
+$data = [
+	"Title"=>$title,
+	"MenuNav"=>$nav,
+	"Banner"=>"",
+    "Content"=>$content,
+	"Scripts"=>$INCLUDE_SCRIPT
+];   
