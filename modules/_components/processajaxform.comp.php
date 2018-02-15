@@ -1,6 +1,6 @@
 <?php
 class ProcessAjaxForm extends AppModel{
-	public $config;
+
 	public $request;
 	public function __construct(){
 		parent::__construct();
