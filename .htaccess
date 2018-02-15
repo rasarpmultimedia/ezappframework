@@ -1,0 +1,19 @@
+
+RewriteEngine On
+
+# SET_QSTR_FORMAT : Request::REGEX_CENTERID;
+# url = http://localhost/ezappframework/index.php?u=order/15/sells/this-is-the-title
+
+# SET_QSTR_FORMAT : Request::REGEX_NORMAL;
+# url = http://localhost/ezappframework/index.php?u=order/sells/15/this-is-the-title
+
+# SET_QSTR_FORMAT : Request::REGEX_DEFUALT;
+# url = http://localhost/ezappframework/index.php?u=order/sells/id
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_FILENAME} !^/
+# index/programs/true
+
+#RewriteRule ^(.*/?)$ index.php?path=$1 [NC,L,QSA]
+#RewriteRule ^(.*)/?$ index.php?$1 [L,QSA]
