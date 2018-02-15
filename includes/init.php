@@ -64,9 +64,9 @@ $registry->auth = new Auth;
 /**
 *	url = http://localhost/ezappframework/?/order/15/sells/this-is-the-ttile
 *	SET_QSTR_FORMAT : Request::REGEX_CENTERID;
-*	url = http://localhost/ezappframework/?/order/sells/15/this-is-the-ttile
+*	url = http://localhost/ezappframework/order/sells/15/this-is-the-ttile
 *	SET_QSTR_FORMAT : Request::REGEX_NORMAL;
-*	url = http://localhost/ezappframework/?/order/sells/id
+*	url = http://localhost/ezappframework/order/sells/id
 *	SET_QSTR_FORMAT : Request::REGEX_DEFUALT;
 **/
-(defined("SET_QSTR_FORMAT")) ?null:define("SET_QSTR_FORMAT",Request::REGEX_CENTERID);
+(defined("SET_URL_FORMAT")) ?null:define("SET_URL_FORMAT",Request::REGEX_CENTERID);

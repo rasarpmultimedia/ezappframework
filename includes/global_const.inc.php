@@ -1,7 +1,10 @@
 <?php
-//Query String
-(defined("SET_QUERY_STRING")) ?null:define("SET_QUERY_STRING","");
-(defined("QUERY_STRING")) ?null:define("QUERY_STRING","?".SET_QUERY_STRING);
+/**
+ * Set to ? if you have not configured the .htaccess to work with Rewrite 
+ * @example (defined("QUERY_STRING")) ?null:define("QUERY_STRING","?");
+ * 
+ * **/
+(defined("QUERY_STRING")) ?null:define("QUERY_STRING","?");
 
 /** Application constants **/
 (defined("APP_NAME")) ?null:define("APP_NAME" , "ezappframework");
@@ -35,5 +38,6 @@ if(isset($_SERVER["HTTPS"])&&$_SERVER["HTTPS"]=="on"){
  (defined("URI")) ?null:define("URI" ,"http://".$_SERVER["SERVER_NAME"]."/".SITE_NAME."/");
 }
 (defined("BASE_URL")) ?null:define("BASE_URL" ,URI); 
-//echo $_SERVER["HTTP_HOST"]."/".$_SERVER['SERVER_NAME']."/";
-?>
+//TEMPLATE_URI
+(defined("TEMPLATE_URI")) ?null:define("TEMPLATE_URI" , BASE_URL."_templates/".LAYOUT_DIR."/");
+
