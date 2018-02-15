@@ -3,55 +3,58 @@
  *Router Class to control page routes
  *This class would direct how url to pages will be formated
  *Router partterns e.g. alphanum:Page/alpha:action/num:id or -alphanum:topic
- *url = index.php?route=controller/action/id:pagetitlehere route formats
+ *url = index.php?route=controller/action/id:pagetargethere route formats
  *url = http://localhost/ezappframework/test/?buy/56/coin/ route formats
+ *url = http://localhost/ezappframework/?/order/15/sells/this-is-the-ttile
  **/
 
  class Request{
      protected $request;
      protected $params = [];
-	 protected $routes = [];
+	 protected $pattern;
 	 
-     const DEFUALT = '\/(?P<controller>[a-z0-9-]+?)\/(?:(?P<action>[a-z0-9-]+))';
-	 const REGEX_NORMAL   = '\/(?P<controller>[a-z0-9-]+?)\/(?P<action>[a-z0-9-]+)\/(?P<id>(?:\d+))?(?:\/?(?P<title>[a-z0-9-]+)?)';
-	 const REGEX_CENTERID = '\/(?P<controller>[a-z0-9-]+?)\/(?P<id>(?:\d+))\/(?P<action>[a-z0-9-]+)?(?:\/?(?P<title>[a-z0-9-]+)?)';
+     const REGEX_DEFUALT = '\/?(?P<controller>[a-z0-9-]+)\/?(?:(?P<action>[a-z0-9-]+))?(?:\/?(?P<target>[a-z0-9-]+)?)';
+	 const REGEX_NORMAL   = '\/?(?P<controller>[a-z0-9-]+)\/(?P<action>[a-z0-9-]+)\/(?P<id>(?:\d+))?(?:\/?(?P<target>[a-z0-9-]+)?)';
+	 const REGEX_CENTERID = '\/?(?P<controller>[a-z0-9-]+)\/(?P<id>(?:\d+))\/(?P<action>[a-z0-9-]+)?(?:\/?(?P<target>[a-z0-9-]+)?)';
 	 
-     public function __construct($uri="",$pattern=self::REGEX_CENTERID) {
-          if(isset($_GET[$uri])){
-               $this->request = strval($_GET[$uri]);
-		  }elseif($_SERVER['QUERY_STRING']){
-			   $this->request = strval($_SERVER['QUERY_STRING']);
-		  }
-     
-	  // $route = $this->formatUrl($uri,self::REGEX_CENTERID);
-      $request = explode("=",$this->request);
-	  $_querypart = !empty($request[0])?$request[0]:null;
-	  $uri = !empty($request[1])?$request[1]:$request[0];
-	   
-		 if($this->formatUrl($uri,$pattern)){
-			$params = $this->formatUrl($uri,$pattern);
-		 }else{
-			$params = $this->formatUrl($uri,self::DEFUALT);
-		 }
-	     $param = [
-		   "controller"=>isset($params["controller"])?$params["controller"]:null,
-		   "action"=>isset($params["action"])?$params["action"]:null,
-		   "id"=>isset($params["id"])?$params["id"]:null,
-		   "title"=>isset($params["title"])?$params["title"]:null
-	   ];
-       $this->routes = $this->addParam($param);
-	  // var_dump($param); 
-     }
-	 
-	 public function formatUrl($url,$pattern=self::DEFUALT){
-		 if(preg_match('#'.$pattern.'#i',$url,$matches)){
-			return $matches;
-		 }
-	 }
+     public function __construct($querystr="",$pattern=null) {
 		 
-     protected function addParam($param=[]){
-     	 $this->params = array_merge($this->params,$param);
+          if(isset($_SERVER['QUERY_STRING'])){
+			  //var_dump($_SERVER['QUERY_STRING']);
+			  $this->request = strval($_SERVER['QUERY_STRING']);
+			  
+		  }elseif(isset($_SERVER['PATH_INFO'])){
+			  //var_dump($_SERVER['PATH_INFO']);
+			  $this->request = strval($_SERVER['PATH_INFO']);
+		  }
+       $this->pattern = $pattern;
+	  //$route = $this->formatUrl($querystr,self::REGEX_CENTERID);
+     
+		 if($this->matchUrl($this->request,$this->pattern)){
+			$params = $this->matchUrl($this->request,$this->pattern);
+		 }else{
+			$params = $this->matchUrl($this->request,Request::REGEX_DEFUALT);
+		 }
+		 return $params;
+		 //var_dump($this->params);
+		
      }
+	 
+	 public function matchUrl($url,$pattern=Request::REGEX_DEFUALT){
+		 if(preg_match('#'.$pattern.'#i',$url,$matches)){
+			$this->params = [
+			 "controller"=>(!empty($matches["controller"])?$matches["controller"]:null),
+			 "action"=>(!empty($matches["action"])?$matches["action"]:null),
+			 "id"=>(!empty($matches["id"])?$matches["id"]:null),
+			 "target"=>(!empty($matches["target"])?preg_replace("~^\s$~","-",$matches["target"]):null)
+			];
+		 }
+		return $this->params;
+	 }
+	 
+	 public function getId(){
+		 return $this->params["id"]?$this->params["id"]:null;
+	 }
 
      public function __set($index,$value){
          $this->params[$index] = $value ;
@@ -59,20 +62,21 @@
 
      public function __get($index)   {
          if(array_key_exists($index,$this->params)){
-           return $this->params[$index];
+           return $this->params[$index]; 
          }
 
      }
 
 }
  /*/Router */
- $req = new Request;
+ 
+ $req = new Request("",Request::REGEX_CENTERID);
  echo "<pre>";
-// var_dump($req->controller);
+//var_dump($req);
  echo "<br>";
 
 echo "Id: {$req->id} --++-- Controller: {$req->controller}_controller.php --++-- Action: {$req->action}<br><br>";
-//echo $req->target;
+echo $req->target;
  echo "</pre>";
 
 ?>
